@@ -1,9 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
 
-const REACT_APP_API_KEY = "AIzaSyB8nErOsyEFV_4ra3bLyDeVzV8rmxZXhxY";
-const REACT_APP_SEARCH_ENGINE_ID = "91c32a4722a3d4846";
-
 function Animals() {
   const [favoriteAnimal, setFavoriteAnimal] = useState("");
   const [imageUrl, setImageUrl] = useState("");
@@ -33,7 +30,7 @@ function Animals() {
 
     async function scrapePage() {
       const response = await fetch(
-        `https://www.googleapis.com/customsearch/v1?q=animal+${adjective}+${favoriteAnimal}&cx=${REACT_APP_SEARCH_ENGINE_ID}&key=${REACT_APP_API_KEY}`
+        `https://www.googleapis.com/customsearch/v1?q=animal+${adjective}+${favoriteAnimal}&cx=${process.env.REACT_APP_SEARCH_ENGINE_ID}&key=${process.env.REACT_APP_API_KEY}`
       );
       const html = await response.text();
       const firstImageUrl = await getFirstImageUrl(html);
@@ -128,8 +125,9 @@ function Animals() {
               {!imageUrl && (
                 <img
                   class="w-full h-full max-w-md"
-                  src="https://source.unsplash.com/random/350x350"
-                  alt="email illustration vector art"
+                  src="https://i.pinimg.com/564x/12/85/57/12855781333601a8938e4ad008f2816c.jpg"
+                  //   src="https://source.unsplash.com/random/350x350"
+                  alt="art"
                 />
               )}
             </div>
