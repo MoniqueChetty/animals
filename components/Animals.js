@@ -30,7 +30,7 @@ function Animals() {
 
     async function scrapePage() {
       const response = await fetch(
-        `https://www.googleapis.com/customsearch/v1?q=animal+${adjective}+${favoriteAnimal}&cx=${process.env.REACT_APP_SEARCH_ENGINE_ID}&key=${process.env.REACT_APP_API_KEY}`
+        `https://www.googleapis.com/customsearch/v1?q=animal+${adjective}+${favoriteAnimal}&cx=${REACT_APP_SEARCH_ENGINE_ID}&key=${REACT_APP_API_KEY}`
       );
       const html = await response.text();
       const firstImageUrl = await getFirstImageUrl(html);
@@ -139,3 +139,5 @@ function Animals() {
 }
 
 export default Animals;
+const REACT_APP_API_KEY = "AIzaSyB8nErOsyEFV_4ra3bLyDeVzV8rmxZXhxY";
+const REACT_APP_SEARCH_ENGINE_ID = "91c32a4722a3d4846";
